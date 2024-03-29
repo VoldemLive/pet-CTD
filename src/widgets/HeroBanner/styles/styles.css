@@ -1,0 +1,94 @@
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 740px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rotated-container {
+  position: absolute;
+  width: 130%;
+  height: 120%;
+  transform: rotate(45deg);
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.image-strip {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.strip-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.up {
+  animation: moveUp 30s linear infinite;
+}
+
+.down {
+  animation: moveDown 45s linear infinite;
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes moveDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .rotated-container {
+    width: 200%;
+    height: 60%;
+    transform: rotate(45deg);
+  }
+
+  .image-strip {
+    flex-basis: 50%;
+  }
+
+  .strip-image {
+    min-height: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .rotated-container {
+    width: 200%;
+    height: 40%;
+    transform: rotate(45deg);
+  }
+  .image-strip {
+    flex-basis: 150%;
+  }
+
+  .strip-image {
+    min-height: 50%;
+  }
+}

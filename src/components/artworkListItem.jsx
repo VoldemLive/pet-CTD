@@ -1,29 +1,37 @@
+/**
+ * Component for rendering an artwork list item.
+ *
+ * @component
+ * @param {Object} data - The artwork data.
+ * @returns {JSX.Element} - The rendered component.
+ */
 import React, { useEffect, useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { LuZoomIn } from "react-icons/lu"
 import { OutletContext } from "@/hoc/context"
 import useHoverCapability from "@/hooks/useHoverCapability"
 import ForbiddenImage from "./forbiddenImage"
-const ArtworkItem = ({ data }) => {
+const ArtworkListItem = ({ artwork }) => {
   const canHover = useHoverCapability()
   const { getImageData } = useContext(OutletContext)
   const [imageError, setImageError] = useState(false)
-
   return (
     <>
-      <div className="relative md:max-w-[300px] mb-5 flex flex-col break-inside-avoid group">
+      <div className="relative md:max-w-[300px] flex flex-col break-inside-avoid group">
         <div className="relative">
-          <Link to={`/artwork/${data.id}`}>
+          <Link to={`/artwork/${artwork.id}`}>
             {!imageError ? (
-              <img
-                className="w-full h-full object-cover"
-                src={`https://www.artic.edu/iiif/2/${data?.image_id}/full/400,/0/default.jpg`}
-                alt={data?.thumbnail?.alt_text}
-                onError={() => setImageError(true)}
-              />
+              <div className="p-2 border border-slate-200 bg-neutral-50">
+                <img
+                  className="w-full h-full object-cover"
+                  src={`https://www.artic.edu/iiif/2/${artwork?.image_id}/full/400,/0/default.jpg`}
+                  alt={artwork?.thumbnail?.alt_text}
+                  onError={() => setImageError(true)}
+                />
+              </div>
             ) : (
               <div className="w-full h-full bg-slate-200 flex justify-center items-center">
-                <ForbiddenImage imageData={data} />
+                <ForbiddenImage imageData={artwork} />
               </div>
             )}
           </Link>
@@ -36,7 +44,7 @@ const ArtworkItem = ({ data }) => {
           >
             {!imageError && (
               <div
-                onClick={() => getImageData(data?.id)}
+                onClick={() => getImageData(artwork?.id)}
                 className=" bg-slate-100/50 cursor-pointer flex absolute top-1 right-1 h-10 w-10 justify-center items-center"
               >
                 <LuZoomIn className="text-gray-400" size={35} />
@@ -44,11 +52,11 @@ const ArtworkItem = ({ data }) => {
             )}
           </div>
         </div>
-        <Link to={`/artwork/${data.id}`}>
-          <div className="flex flex-col text-xs text-center mt-1 text-gray-400 ">
-            {data.title}
-            <p className="font-semibold">
-              {data.date_display && `(${data.date_display})`}
+        <Link to={`/artwork/${artwork.id}`}>
+          <div className="flex flex-col text-xs font-thin text-center mt-1 text-gray-400 ">
+            <div className="px-3 truncate">{artwork.title}</div>
+            <p className="font-normal">
+              {artwork.date_display && `${artwork.date_display}`}
             </p>
           </div>
         </Link>
@@ -57,4 +65,4 @@ const ArtworkItem = ({ data }) => {
   )
 }
 
-export default ArtworkItem
+export default ArtworkListItem

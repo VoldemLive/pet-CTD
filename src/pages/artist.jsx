@@ -30,10 +30,10 @@ const Artist = () => {
     <Loading />
   ) : (
     <>
-      <div className="flex flex-col gap-3">
+      <div className="relative flex-col p-6 max-w-[1640px] mx-auto flex w-full h-full">
         <h1 className="text-gray-500 text-2xl">{artistData.title}</h1>
         <p className="text-gray-400">{`${artistData.birth_date} - ${artistData.death_date}`}</p>
-        <div className="sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%]">
+        <div className="py-4 sm:max-w-[80%] md:max-w-[70%] lg:max-w-[60%]">
           {altNames.length > 0 ? (
             <div>
               <h3 className="text-xs text-gray-400">Also known as:</h3>
@@ -48,12 +48,14 @@ const Artist = () => {
             </div>
           )}
         </div>
-        <hr />
-        <ArtworksCollection
-          endpoint="artist"
-          id={id}
-          paginationType="infinite"
-        />
+        <hr className="py-3" />
+        <div className="flex w-full">
+          <ArtworksCollection
+            endpoint="artist"
+            id={id}
+            paginationType="infinite"
+          />
+        </div>
       </div>
     </>
   )

@@ -3,6 +3,12 @@ import React, { useState } from "react"
 const Alphabet = ({ letterSelected, currentLetter }) => {
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
 
+  /**
+   * Handles the button click event.
+   *
+   * @param {string} letter - The letter selected by the user.
+   * @returns {void}
+   */
   const buttonHandler = (letter) => {
     letterSelected(letter)
   }

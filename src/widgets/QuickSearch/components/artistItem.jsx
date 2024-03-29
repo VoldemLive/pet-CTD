@@ -14,7 +14,7 @@ const ArtistItem = ({ data }) => {
   }, [data])
 
   return (
-    <div className="text-gray-300">
+    <div className="text-gray-300 text-ellipsis">
       <Link
         className=" hover:text-gray-200 transition-all duration-200"
         to={`/artist/${data.id}`}

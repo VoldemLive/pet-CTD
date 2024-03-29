@@ -25,7 +25,7 @@ const playground = () => {
   }
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="relative flex-col p-6 max-w-[1640px] mx-auto flex w-full h-full gap-3">
       <div className="w-full rounded-md border border-green-200 bg-green-100 p-3 ">
         <h3 className="font-bold text-green-600">Hint!</h3>
         <p

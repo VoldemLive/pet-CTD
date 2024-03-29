@@ -2,58 +2,65 @@ import React, { useState, useEffect } from "react"
 import api from "@/api/api"
 import Pagination from "@/components/pagination"
 import { Link, useLocation, useNavigate } from "react-router-dom"
-import Alphabet from "@/components/alphabet"
 import ArtistsListItem from "@/components/artistListItem"
+import SearchInput from "@/components/searchInput"
 
-const ArtistsPage = () => {
+const SearchArtistsPage = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const searchParams = new URLSearchParams(location.search)
-  const page_limit = 24
   const [artists, setArtists] = useState([])
   const [maxPage, setMaxPage] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
-  const [page, setPage] = useState(searchParams.get("p") || "1", 10)
-  const [letter, setLetter] = useState(searchParams.get("l") || "A")
+  const [page, setPage] = useState(parseInt(searchParams.get("p")) || 1)
+  const [search, setSearch] = useState(searchParams.get("q") || "")
 
   useEffect(() => {
-    const pageFromUrl = parseInt(searchParams.get("p")) || 1
-    const letterFromUrl = searchParams.get("l") || "A"
-    setPage(pageFromUrl)
-    setLetter(letterFromUrl)
+    const newPage = parseInt(searchParams.get("p")) || 1
+    const newSearch = searchParams.get("q") || ""
+    setPage(newPage)
+    setSearch(newSearch)
+    fetchData(newSearch, newPage)
   }, [location.search])
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true)
-      const response = await api.getArtists(page, page_limit, letter)
+  const fetchData = async (query = search, currentPage = page) => {
+    setIsLoading(true)
+    const response = await api.searchArtists(
+      query,
+      currentPage,
+      24,
+      "id,title,birth_date,death_date"
+    )
+    if (response && response.data && response.pagination) {
       setArtists(response.data)
-      setPage(response.pagination.current_page)
       setMaxPage(response.pagination.total_pages)
-      setIsLoading(false)
     }
-    fetchData()
-  }, [page, letter])
-
-  const updateQueryParams = (nextLetter, nextPage) => {
-    navigate(`?l=${nextLetter}&p=${nextPage}`)
+    setIsLoading(false)
   }
 
-  const nextLetter = (curLetter) => {
-    updateQueryParams(curLetter, 1)
+  const updateQueryParams = (newSearch, newPage) => {
+    navigate(`?q=${newSearch}&p=${newPage}`)
   }
 
-  const loadPage = async (newPage) => {
-    updateQueryParams(letter, newPage)
+  const handlePageChange = (newPage) => {
+    updateQueryParams(search, newPage)
   }
 
   return (
     <>
       <div className="relative flex-col p-6 max-w-[1640px] mx-auto flex w-full h-full">
-        <h1 className="text-xl sm:text-2xl font-semibold text-slate-500 m-4">
-          Artists catalog
+        <h1 className="text-4xl sm:text-3xl font-semibold text-slate-500 m-4">
+          Search artists
         </h1>
-        {/* when loading fade bottom part and show loading component */}
+        <SearchInput
+          searchQuery={search}
+          placeholder={"Dive into artist profiles: Enter any name or alias ..."}
+        />
+        {artists.length === 0 && isLoading === false && (
+          <div className="flex w-full h-40 text-slate-500 text-xl">
+            Sorry, but nothing can find by this query ...
+          </div>
+        )}
         <div
           className={`mb-10 columns-1 sm:columns-2 md:columns-3 lg:columns-4 transition-all duration-300 ${
             isLoading && "opacity-20"
@@ -66,16 +73,13 @@ const ArtistsPage = () => {
             </div>
           ))}
         </div>
-        <div>
-          <Alphabet letterSelected={nextLetter} currentLetter={letter} />
-        </div>
         <div className="flex w-full justify-center items-center">
           <div className="flex w-full lg:max-w-[850px]">
             {maxPage > 1 && (
               <Pagination
                 currentPage={page}
                 totalPages={maxPage}
-                setCurrentPage={loadPage}
+                setCurrentPage={handlePageChange}
               />
             )}
           </div>
@@ -85,4 +89,4 @@ const ArtistsPage = () => {
   )
 }
 
-export default ArtistsPage
+export default SearchArtistsPage

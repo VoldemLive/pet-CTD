@@ -23,30 +23,37 @@ class API {
     })
   }
 
-  async searchArtworkAndArtist(query, page = 1, limit = 12) {
-    const fieldsArtwork = "id,title,image_id"
-    const artworkSearchPromise = this.apiController.get(
-      `${this.ARTWORKS_SEARCH}?q=${encodeURIComponent(
-        query
-      )}&fields=${fieldsArtwork}&limit=12`
-    )
-    const artistSearchPromise = this.apiController.get(
-      `${this.ARTISTS_SEARCH}?q=${encodeURIComponent(query)}&limit=12`
-    )
-
-    const [artworkResponse, artistResponse] = await Promise.all([
-      artworkSearchPromise,
-      artistSearchPromise,
-    ])
+  async searchArtworkAndArtist(query, page = 1, limit = 12, fields = null) {
+    console.log(query, page, limit, fields)
+    const artworksData = await this.searchArtworks(query, page, limit, fields)
+    const artistsData = await this.searchArtists(query, page, limit, fields)
 
     return {
-      artworks: artworkResponse.data,
-      artists: artistResponse.data,
+      artworks: artworksData,
+      artists: artistsData,
     }
   }
 
+  async searchArtists(searchText = "", page = 1, limit = 24, fields = null) {
+    let queryString = `q=${searchText}&size=${limit}&from=${(page - 1) * limit}`
+    if (fields) queryString += `&fields=${fields}`
+    const response = await this.apiController.get(
+      `${this.ARTISTS_SEARCH}?${queryString}`
+    )
+    return response.data
+  }
+
+  async searchArtworks(searchText = "", page = 1, limit = 24, fields = null) {
+    let queryString = `q=${searchText}&size=${limit}&from=${(page - 1) * limit}`
+    if (fields) queryString += `&fields=${fields}`
+    const response = await this.apiController.get(
+      `${this.ARTWORKS_SEARCH}?${queryString}`
+    )
+    return response.data
+  }
+
   async getArtworksByArtistId(id, page = 1, limit = 12) {
-    const fields = ["title", "image_id", "thumbnail", "id"]
+    const fields = ["title", "id", "image_id", "date_display"]
     const params = encodeURIComponent(
       JSON.stringify({
         query: {
@@ -70,12 +77,23 @@ class API {
     return response.data
   }
 
-  async getImage(id) {
-    const response = await this.apiController.get(`${this.IMAEGES}/${id}`)
-    return response.data
-  }
+  // async getImage(id) {
+  //   const response = await this.apiController.get(`${this.IMAEGES}/${id}`)
+  //   return response.data
+  // }
 
-  async getArtworks(page = 1, limit = 12, startLetter = "T") {
+  async getArtworks(page = 1, limit = 12, startLetter = "A", sortBy = "title") {
+    let sort = []
+    switch (sortBy) {
+      case "title":
+        sort = [{ "title.keyword": { order: "asc" } }]
+        break
+      case "date":
+        sort = [{ updated_at: { order: "asc" } }]
+        break
+      default:
+        break
+    }
     const fields = [
       "title",
       "id",
@@ -91,7 +109,7 @@ class API {
           must: [{ prefix: { "title.keyword": startLetter } }],
         },
       },
-      sort: [{ "title.keyword": { order: "asc" } }],
+      sort: sort,
       fields: fields,
     }
     const params = encodeURIComponent(JSON.stringify(query))
@@ -106,36 +124,6 @@ class API {
   }
 
   async getArtists(page = 1, limit = 12, startLetter = "T") {
-    //// This is old version of the code
-    //// to get artists
-    ////but API ARTIC has restricted access to this endpoint
-    //// so I need make it litlle bit different and simpler
-
-    // const queryParam = encodeURIComponent(
-    //   JSON.stringify({
-    //     bool: {
-    //       must: [
-    //         { match: { is_artist: true } },
-    //         { prefix: { "title.keyword": startLetter } },
-    //       ],
-    //     },
-    //   })
-    // )
-
-    // const sortParam = "title.keyword"
-    // const queryString = `query=${queryParam}&sort=${sortParam}&size=${limit}&from=${
-    //   (page - 1) * limit
-    // }`
-
-    // console.log(`${this.BASE_URL}${this.ARTISTS_SEARCH}?${queryString}`)
-    // const response = await this.apiController.get(
-    //   `${this.ARTISTS_SEARCH}?${queryString}`
-    // )
-    // return response.data
-
-    //// New version of the code
-    //// I'm still got stuck with the restricted access of the API
-    //// but current version of the code I like more
     const fields = [
       "title",
       "sort_title",
@@ -196,7 +184,8 @@ class API {
   //   return response.data
   // }
 
-  async getArtworksByYear(year) {
+  async getArtworksByYear(year, page = 1, limit = 12) {
+    const fields = ["title", "id", "image_id", "artist_title", "date_display"]
     const query = {
       query: {
         bool: {
@@ -213,12 +202,13 @@ class API {
           ],
         },
       },
+      fields: fields,
     }
-
+    const params = encodeURIComponent(JSON.stringify(query))
     const response = await this.apiController.get(
-      `${this.ARTWORKS_SEARCH}?params=${encodeURIComponent(
-        JSON.stringify(query)
-      )}`
+      `${this.ARTWORKS_SEARCH}?params=${params}&size=${limit}&from=${
+        (page - 1) * limit
+      }`
     )
 
     return response.data

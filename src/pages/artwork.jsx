@@ -18,7 +18,6 @@ const Artwork = () => {
     const fetchData = async () => {
       const response = await api.findArtworkById(id)
       setArtworkData(response.data)
-      console.log(response.data)
       setIsLoading(false)
     }
     fetchData()
@@ -27,14 +26,16 @@ const Artwork = () => {
   if (isLoading) return <Loading />
 
   return (
-    <div>
+    <div className="relative p-6 max-w-[1640px] mx-auto flex items-center justify-between w-full h-full">
       <div>
         <div className="flex md:flex-row flex-col gap-8">
           <div className="flex flex-col flex-1">
             <div className="mb-3">
-              <p className="text-slate-500 text-4xl">{artworkData?.title}</p>
+              <p className="text-slate-500 text-4xl mb-1">
+                {artworkData?.title}
+              </p>
               <Link to={`/artist/${artworkData?.artist_ids[0]}`}>
-                <p className="text-slate-400 text-sm">
+                <p className="text-slate-400 text-base underline">
                   {artworkData?.artist_display}
                 </p>
               </Link>
@@ -43,7 +44,7 @@ const Artwork = () => {
               <div className="flex flex-col md:max-w-[50%]">
                 {!imageError ? (
                   <img
-                    className="cursor-zoom-in"
+                    className="cursor-zoom-in p-2 border border-slate-100 shadow-sm shadow-black/30"
                     onClick={() => getImageData(artworkData?.id)}
                     src={`https://www.artic.edu/iiif/2/${artworkData?.image_id}/full/400,/0/default.jpg`}
                     alt={artworkData?.thumbnail?.alt_text}
@@ -55,7 +56,7 @@ const Artwork = () => {
                   </div>
                 )}
                 <div>
-                  <p className="w-full text-center text-slate-500">
+                  <p className="w-full text-center px-10 py-1 text-sm text-slate-400">
                     {`${artworkData?.title} (${artworkData?.date_display})`}
                   </p>
                 </div>

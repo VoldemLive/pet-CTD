@@ -41,7 +41,7 @@ const Layout = () => {
           <Navbar toggleShowSearch={toggleShowSearch} />
         </header>
         <article className="mb-auto">
-          <div className="relative left-[50%] translate-x-[-50%] w-full p-6">
+          <div className="relative left-[50%] translate-x-[-50%] w-full">
             <OutletContext.Provider value={{ getImageData }}>
               <Outlet />
             </OutletContext.Provider>
