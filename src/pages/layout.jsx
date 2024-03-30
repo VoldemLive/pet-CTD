@@ -27,7 +27,7 @@ const Layout = () => {
   return (
     <>
       {imageId && (
-        <div className="fixed z-[1000] h-full w-full bg-slate-400/60 backdrop-blur-md transition duration-3000">
+        <div className="fixed z-[1000] h-full w-full bg-gray-400/60 backdrop-blur-md transition duration-3000">
           <OpenSeadragonViewer close={() => setImageId(null)} id={imageId} />
         </div>
       )}

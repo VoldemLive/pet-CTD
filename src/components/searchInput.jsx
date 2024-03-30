@@ -32,7 +32,7 @@ const SearchInput = ({ searchQuery, placeholder }) => {
 
       <button
         onClick={startSearching}
-        className="p-2 sm:p-3 sm:ml-3 bg-slate-50 border border-slate-300 bottom-1 tetx-large sm:text-xl text-slate-500"
+        className="p-2 sm:p-3 sm:ml-3 bg-gray-50 border border-gray-300 bottom-1 tetx-large sm:text-xl text-gray-500"
       >
         <div className="flex flex-row items-center gap-2">
           <LuSearch size={30} className="flex text-gray-400" />

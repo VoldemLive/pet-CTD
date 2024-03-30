@@ -17,9 +17,9 @@ const Alphabet = ({ letterSelected, currentLetter }) => {
       {alphabet.map((letter, index) => (
         <button
           key={index}
-          className={`flex p-2 hover:bg-slate-200 ${
+          className={`flex p-2 hover:bg-gray-200 ${
             currentLetter === letter
-              ? "bg-slate-400 hover:bg-slate-400 font-semibold text-white"
+              ? "bg-gray-400 hover:bg-gray-400 font-semibold text-white"
               : "bg-transparent"
           }`}
           onClick={() => buttonHandler(letter)}

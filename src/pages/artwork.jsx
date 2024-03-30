@@ -31,11 +31,11 @@ const Artwork = () => {
         <div className="flex md:flex-row flex-col gap-8">
           <div className="flex flex-col flex-1">
             <div className="mb-3">
-              <p className="text-slate-500 text-4xl mb-1">
+              <p className="text-gray-500 text-4xl mb-1">
                 {artworkData?.title}
               </p>
               <Link to={`/artist/${artworkData?.artist_ids[0]}`}>
-                <p className="text-slate-400 text-base underline">
+                <p className="text-gray-400 text-base underline">
                   {artworkData?.artist_display}
                 </p>
               </Link>
@@ -44,30 +44,30 @@ const Artwork = () => {
               <div className="flex flex-col md:max-w-[50%]">
                 {!imageError ? (
                   <img
-                    className="cursor-zoom-in p-2 border border-slate-100 shadow-sm shadow-black/30"
+                    className="cursor-zoom-in p-2 border border-gray-100 shadow-sm shadow-black/30"
                     onClick={() => getImageData(artworkData?.id)}
                     src={`https://www.artic.edu/iiif/2/${artworkData?.image_id}/full/400,/0/default.jpg`}
                     alt={artworkData?.thumbnail?.alt_text}
                     onError={() => setImageError(true)}
                   />
                 ) : (
-                  <div className="w-full h-full bg-slate-200 flex justify-center items-center">
+                  <div className="w-full h-full bg-gray-200 flex justify-center items-center">
                     <ForbiddenImage alert="This artwork is exclusively available for viewing at the Art Institute of Chicago" />
                   </div>
                 )}
                 <div>
-                  <p className="w-full text-center px-10 py-1 text-sm text-slate-400">
+                  <p className="w-full text-center px-10 py-1 text-sm text-gray-400">
                     {`${artworkData?.title} (${artworkData?.date_display})`}
                   </p>
                 </div>
               </div>
               <div className="flex flex-col flex-1 gap-4">
-                <p className="text-slate-500">
+                <p className="text-gray-500">
                   {artworkData?.description
                     ? htmlParser(artworkData?.description)
                     : null}
                 </p>
-                <div className="flex flex-col gap-3 text-slate-500">
+                <div className="flex flex-col gap-3 text-gray-500">
                   <div>
                     {artworkData.medium_display &&
                       `Technique: ${artworkData.medium_display}`}

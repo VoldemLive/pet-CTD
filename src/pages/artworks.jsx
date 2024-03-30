@@ -54,7 +54,7 @@ const ArtworksPage = () => {
   return (
     <>
       <div className="relative flex-col p-6 max-w-[1640px] mx-auto flex w-full h-full">
-        <h1 className="text-xl sm:text-2xl font-semibold text-slate-500 m-4">
+        <h1 className="text-xl sm:text-2xl font-semibold text-gray-500 m-4">
           Artworks catalog
         </h1>
 

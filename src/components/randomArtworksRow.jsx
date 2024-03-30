@@ -31,7 +31,7 @@ const RandomArtworksRow = () => {
   return (
     <div className="flex flex-col justify-center relative w-full bg-gray-700 overflow-hidden">
       <div className="relative max-w-[1640px] mx-auto flex w-full mb-20">
-        <div className="absolute text-clip text-nowrap top-0 text-7xl sm:text-8xl lg:text-9xl text-slate-600/50">
+        <div className="absolute text-clip text-nowrap top-0 text-7xl sm:text-8xl lg:text-9xl text-gray-600/50">
           art surprise
         </div>
       </div>
@@ -49,19 +49,19 @@ const RandomArtworksRow = () => {
         ))}
       </div>
       <div className="absolute left-3 flex items-center justify-center h-full">
-        <div className="cursor-hand text-slate-400 opacity-50 hover:opacity-100 hover:text-slate-400 transition-all duration-300">
+        <div className="cursor-hand text-gray-400 opacity-50 hover:opacity-100 hover:text-gray-400 transition-all duration-300">
           <LuChevronLeftSquare
             size={45}
-            className="text-slate-400 opacity-50 hover:opacity-100"
+            className="text-gray-400 opacity-50 hover:opacity-100"
             onClick={scrollLeft}
           />
         </div>
       </div>
       <div className="absolute right-3 flex items-center justify-center h-full ">
-        <div className="cursor-hand text-slate-400 opacity-50 hover:opacity-100 hover:text-slate-400 transition-all duration-300">
+        <div className="cursor-hand text-gray-400 opacity-50 hover:opacity-100 hover:text-gray-400 transition-all duration-300">
           <LuChevronRightSquare
             size={45}
-            className="text-slate-400 opacity-50 hover:opacity-100"
+            className="text-gray-400 opacity-50 hover:opacity-100"
             onClick={scrollRight}
           />
         </div>

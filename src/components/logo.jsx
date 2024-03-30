@@ -6,7 +6,7 @@ const logo = ({ compact }) => {
     <>
       <Link
         to="/"
-        className="cursor-pointer text-slate-300 hover:text-slate-200 transition-all duration-300"
+        className="cursor-pointer text-gray-300 hover:text-gray-200 transition-all duration-300"
       >
         <div className="flex flex-row items-center">
           <div>

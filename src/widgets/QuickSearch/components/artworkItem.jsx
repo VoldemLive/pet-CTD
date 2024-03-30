@@ -28,7 +28,7 @@ const ArtworkItem = ({ data }) => {
                 onError={() => setImageError(true)}
               />
             ) : (
-              <div className="h-10 w-8 bg-slate-900"></div>
+              <div className="h-10 w-8 bg-gray-900"></div>
             )}
           </div>
           <div className="flex hover:text-grey-300 hover:ml-1 transition-all duration-300 ">

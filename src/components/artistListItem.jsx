@@ -15,7 +15,7 @@ const ArtistsListItem = ({ artist }) => {
   return (
     <div className="break-inside-avoid group" key={artist.id}>
       <Link to={`/artist/${artist.id}`}>
-        <div className="p-3 hover:bg-slate-50 transition-all duration-300">
+        <div className="p-3 hover:bg-gray-50 transition-all duration-300">
           <h2 className="text-gray-500 text-xl sm:text-lg lg:text-xl truncate">
             {artist.title}
           </h2>

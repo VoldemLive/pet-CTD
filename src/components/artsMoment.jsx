@@ -20,7 +20,7 @@ const ArtsMoment = () => {
       <Accordion.Header className="flex">
         <Accordion.Trigger
           className={classNames(
-            "text-slate-100 bg-slate-400 hover:bg-slate-100 hover:text-slate-400 font-semibold transition-all duration-300 group flex h-[45px] flex-1 cursor-default items-center justify-between px-5 leading-none outline-none",
+            "text-gray-100 bg-gray-400 hover:bg-gray-100 hover:text-gray-400 font-semibold transition-all duration-300 group flex h-[45px] flex-1 cursor-default items-center justify-between px-5 leading-none outline-none",
             className
           )}
           {...props}
@@ -28,7 +28,7 @@ const ArtsMoment = () => {
         >
           {children}
           <LuChevronDown
-            className="text-slate-100 ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transform duration-300 group-data-[state=open]:rotate-180"
+            className="text-gray-100 ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transform duration-300 group-data-[state=open]:rotate-180"
             aria-hidden
           />
         </Accordion.Trigger>
@@ -40,7 +40,7 @@ const ArtsMoment = () => {
     ({ children, className, ...props }, forwardedRef) => (
       <Accordion.Content
         className={classNames(
-          "text-slate-400 bg-slate-200/30 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden",
+          "text-gray-400 bg-gray-200/30 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden",
           className
         )}
         {...props}
@@ -56,10 +56,10 @@ const ArtsMoment = () => {
       <div className="relative flex-col-reverse lg:flex-row gap-10 max-w-[1640px] mx-auto flex w-full px-4">
         <div className="h-full w-full md:w-8/12 lg:w-6/12 flex flex-col p-5">
           <div className="flex w-full flex-col">
-            <h4 className="p-2 text-xl font-semibold text-slate-400">
+            <h4 className="p-2 text-xl font-semibold text-gray-400">
               Welcome to the World of Vincent van Gogh
             </h4>
-            <p className="text-slate-400 py-3">
+            <p className="text-gray-400 py-3">
               Dive into the turbulent, vibrant life of Vincent van Gogh, a
               visionary whose brush strokes redefined the paths of art and left
               an indelible mark on the world. Beyond his famed Starry Night and
@@ -150,7 +150,7 @@ const ArtsMoment = () => {
         </div>
       </div>
       <div className="flex justify-center p-3 ">
-        <Link className="bg-slate-400 text-slate-100 p-3" to="artist/40610">
+        <Link className="bg-gray-400 text-gray-100 p-3" to="artist/40610">
           Explore Van Gogh's Masterpieces
         </Link>
       </div>

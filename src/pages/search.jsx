@@ -45,11 +45,11 @@ const SearchPage = () => {
           <Loading />
         </div>
       )}
-      <div className="text-xl sm:text-2xl text-slate-500 p-3">
+      <div className="text-xl sm:text-2xl text-gray-500 p-3">
         Search results:
       </div>
       <SearchInput searchQuery={search} />
-      <h2 className="text-slate-400 text-xl">Artists:</h2>
+      <h2 className="text-gray-400 text-xl">Artists:</h2>
       <hr className="border-gray-300/50 my-1" />
       <div className="p-3 mb-4">
         <div className="columns-1 sm:columns-2 md:columns-3">
@@ -63,7 +63,7 @@ const SearchPage = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-end w-full p-3 text-slate-500 underline">
+        <div className="flex items-center justify-end w-full p-3 text-gray-500 underline">
           {artistsData && artistsData?.pagination?.total > limit && (
             <Link to={`/search/artists?q=${search}`}>
               show all {artistsData?.pagination?.total} artists ...
@@ -71,7 +71,7 @@ const SearchPage = () => {
           )}
         </div>
       </div>
-      <h2 className="text-slate-400 text-xl">Artworks:</h2>
+      <h2 className="text-gray-400 text-xl">Artworks:</h2>
       <hr className="border-gray-300/50 my-1" />
       <div className="p-3 mb-4">
         <div className="columns-1 sm:gap-5 sm:columns-2 md:gap-14 md:columns-3 lg:columns-4">
@@ -81,7 +81,7 @@ const SearchPage = () => {
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-end w-full p-3 text-slate-500 underline">
+        <div className="flex items-center justify-end w-full p-3 text-gray-500 underline">
           {artworksData && artworksData?.pagination?.total > limit && (
             <Link to={`/search/artworks?q=${search}`}>
               show all {artworksData?.pagination?.total} artworks ...

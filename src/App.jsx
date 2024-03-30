@@ -10,6 +10,8 @@ import SearchArtistsPage from "./pages/searchArtists"
 import SearchArtworksPage from "./pages/searchArtworks"
 import About from "./pages/about"
 import Home from "./pages/home"
+import PrivacyPolicy from "./pages/privacy"
+import TermsOfService from "./pages/termsOfService"
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/artworks" element={<ArtworksPage />} />
           <Route path="/playground" element={<Playground />} />
           <Route path="/about" element={<About />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
         </Route>
       </Routes>
     </>

@@ -63,19 +63,19 @@ const OpenSeadragonViewer = ({ id, close }) => {
         <div className="flex flex-row w-full justify-between">
           <div className="flex flex-row gap-2">
             <CiCircleMinus
-              className="text-gray-600 cursor-pointer rounded-full bg-slate-200"
+              className="text-gray-600 cursor-pointer rounded-full bg-gray-200"
               size={40}
               onClick={handleZoomOut}
             />
             <CiCirclePlus
-              className="text-gray-600 cursor-pointer rounded-full bg-slate-200"
+              className="text-gray-600 cursor-pointer rounded-full bg-gray-200"
               size={40}
               onClick={handleZoomIn}
             />
           </div>
           <div className="flex">
             <CiCircleRemove
-              className="text-gray-600 cursor-pointer rounded-full bg-slate-200"
+              className="text-gray-600 cursor-pointer rounded-full bg-gray-200"
               size={40}
               onClick={close}
             />

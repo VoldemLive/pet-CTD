@@ -18,7 +18,7 @@ const ArtworkRowItem = ({ artwork, maxHeight }) => {
   return (
     <>
       <div className="md:max-w-[300px] flex flex-col break-inside-avoid group">
-        <div className="relative border border-slate-200 bg-neutral-100 p-2 hover:scale-105 shadow-md shadow-black/20 hover:shadow-2xl hover:shadow-black/50  transition-all duration-300">
+        <div className="relative border border-gray-200 bg-neutral-100 p-2 hover:scale-105 shadow-md shadow-black/20 hover:shadow-2xl hover:shadow-black/50  transition-all duration-300">
           <Link to={`/artwork/${artwork.id}`}>
             {!imageError ? (
               <img
@@ -32,7 +32,7 @@ const ArtworkRowItem = ({ artwork, maxHeight }) => {
               <div
                 className={`w-full h-full ${
                   maxHeight && `max-h-[${maxHeight}px]`
-                } bg-slate-200 flex justify-center items-center`}
+                } bg-gray-200 flex justify-center items-center`}
               >
                 <ForbiddenImage imageData={artwork} />
               </div>

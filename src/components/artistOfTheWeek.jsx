@@ -6,19 +6,19 @@ const ArtistOfTheWeek = () => {
       <div className="relative max-w-[1640px] justify-center mx-auto flex w-full">
         <div className="z-[1] max-w-[1110px] flex flex-col-reverse md:flex-row py-14 md:py-24 px-6 w-full justify-center gap-10 md:gap-20">
           <div className="relative flex flex-col justify-center shrink-1">
-            <h2 className="sm:text-xl lg:text-4xl text-nowrap font-semibold text-slate-400/20">
+            <h2 className="sm:text-xl lg:text-4xl text-nowrap font-semibold text-gray-400/20">
               Artist of the week:
             </h2>
-            <h2 className="text-4xl font-semibold text-slate-400">
+            <h2 className="text-4xl font-semibold text-gray-400">
               Pablo Picasso
             </h2>
-            <p className="text-lg py-4 font-light text-slate-400">
+            <p className="text-lg py-4 font-light text-gray-400">
               Dive into the week with Pablo Picasso, the master of innovation
               and the father of Cubism. His bold vision and relentless
               experimentation paved the way for modern art as we know it.
             </p>
             <Link
-              className="text-lg text-right text-slate-400 underline mt-5"
+              className="text-lg text-right text-gray-400 underline mt-5"
               to="/artist/36198"
             >
               Learn more about Pablo Picasso

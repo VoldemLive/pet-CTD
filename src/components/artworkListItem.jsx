@@ -21,7 +21,7 @@ const ArtworkListItem = ({ artwork }) => {
         <div className="relative">
           <Link to={`/artwork/${artwork.id}`}>
             {!imageError ? (
-              <div className="p-2 border border-slate-200 bg-neutral-50">
+              <div className="p-2 border border-gray-200 bg-neutral-50">
                 <img
                   className="w-full h-full object-cover"
                   src={`https://www.artic.edu/iiif/2/${artwork?.image_id}/full/400,/0/default.jpg`}
@@ -30,7 +30,7 @@ const ArtworkListItem = ({ artwork }) => {
                 />
               </div>
             ) : (
-              <div className="w-full h-full bg-slate-200 flex justify-center items-center">
+              <div className="w-full h-full bg-gray-200 flex justify-center items-center">
                 <ForbiddenImage imageData={artwork} />
               </div>
             )}
@@ -45,7 +45,7 @@ const ArtworkListItem = ({ artwork }) => {
             {!imageError && (
               <div
                 onClick={() => getImageData(artwork?.id)}
-                className=" bg-slate-100/50 cursor-pointer flex absolute top-1 right-1 h-10 w-10 justify-center items-center"
+                className=" bg-gray-100/50 cursor-pointer flex absolute top-1 right-1 h-10 w-10 justify-center items-center"
               >
                 <LuZoomIn className="text-gray-400" size={35} />
               </div>

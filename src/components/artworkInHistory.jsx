@@ -64,12 +64,12 @@ const ArtworkInHistory = () => {
   }
 
   return (
-    <div className="relative text-slate-400 bg-slate-100 w-full min-w-[280px]">
+    <div className="relative text-gray-400 bg-gray-100 w-full min-w-[280px]">
       <div className="relative pt-20 pb-16 max-w-[1640px] mx-auto flex items-center justify-between w-full h-full">
-        <div className="absolute md:text-nowrap top-0 text-right right-0 text-7xl sm:text-8xl lg:text-9xl text-slate-400/10">
+        <div className="absolute md:text-nowrap top-0 text-right right-0 text-7xl sm:text-8xl lg:text-9xl text-gray-400/10">
           centuries speak
         </div>
-        <div className="flex w-full flex-col md:flex-row gap-5 md:gap-10 lg:gap-30">
+        <div className="flex w-full flex-col md:flex-row gap-0 md:gap-10 lg:gap-30">
           <div className="w-full justify-center md:mr-10 md:justify-end flex ">
             <div className="flex flex-col w-full justify-center items-center md:items-end">
               {title && (
@@ -77,7 +77,11 @@ const ArtworkInHistory = () => {
                   {title}
                 </h2>
               )}
-              {artwork && <ArtworkRowItem artwork={artwork} />}
+              {artwork && (
+                <div className="px-6 sm:p-0">
+                  <ArtworkRowItem artwork={artwork} />
+                </div>
+              )}
             </div>
           </div>
           <div className="flex w-full">

@@ -16,11 +16,11 @@ const Footer = () => {
               <input
                 id="emailforsubscribe"
                 type="text"
-                className="px-4 py-2 bg-white border dark:bg-gray-900 text-gray-300 border-gray-600 focus:border-blue-300  focus:ring-blue-300"
+                className="px-4 py-2 rounded-sm bg-white border dark:bg-gray-900 text-gray-300 border-gray-600 focus:border-blue-300  focus:ring-blue-300"
                 placeholder="Email Address"
               />
 
-              <button className="w-full px-6 py-2.5 text-sm font-medium tracking-wider text-white transition-colors duration-300 transform md:w-auto md:mx-4 focus:outline-none bg-slate-800 hover:bg-slate-500 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+              <button className="w-full px-6 py-2.5 rounded-sm text-sm font-medium tracking-wider text-white transition-colors duration-300 transform md:w-auto md:mx-4 focus:outline-none bg-purple-800 hover:bg-purple-900 ">
                 Subscribe
               </button>
             </div>
@@ -32,47 +32,47 @@ const Footer = () => {
             <div className="flex flex-col items-start mt-5 space-y-2">
               <Link
                 to="/"
-                className="transition-colors duration-300 text-gray-300/40 hover:text-slate-100 hover:underline"
+                className="transition-colors duration-300 text-gray-300/40 hover:text-gray-100 hover:underline"
               >
                 Home
               </Link>
               <Link
-                to="/mission"
-                className="transition-colors duration-300 text-gray-300/40 hover:text-slate-100 hover:underline"
+                to="/artists"
+                className="transition-colors duration-300 text-gray-300/40 hover:text-gray-100 hover:underline"
               >
-                Our mission
+                Artists List
               </Link>
               <Link
-                to="/ourphilosophy"
-                className="transition-colors duration-300 text-gray-300/40 hover:text-slate-100 hover:underline"
+                to="/artworks"
+                className="transition-colors duration-300 text-gray-300/40 hover:text-gray-100 hover:underline"
               >
-                Our Philosophy
+                Artworks Catalog
               </Link>
             </div>
           </div>
 
           <div>
-            <p className="font-semibold text-white/60">Industries</p>
+            <p className="font-semibold text-white/60">Pivacy and other</p>
 
             <div className="flex flex-col items-start mt-5 space-y-2">
               <Link
-                to="/checktoken"
-                className="transition-colors duration-300 text-gray-300/40 hover:text-slate-100 hover:underline"
+                to="/about"
+                className="transition-colors duration-300 text-gray-300/40 hover:text-gray-100 hover:underline"
               >
-                Retail & E-Commerce
+                About Us
               </Link>
-              <a
-                href="#"
-                className="transition-colors duration-300 text-gray-300/40 hover:text-slate-100 hover:underline"
+              <Link
+                to="/privacy"
+                className="transition-colors duration-300 text-gray-300/40 hover:text-gray-100 hover:underline"
               >
-                Information Technology
-              </a>
-              <a
-                href="#"
-                className="transition-colors duration-300 text-gray-300/40 hover:text-slate-100 hover:underline"
+                Privacy Policy
+              </Link>
+              <Link
+                to="/terms"
+                className="transition-colors duration-300 text-gray-300/40 hover:text-gray-100 hover:underline"
               >
-                Finance & Insurance
-              </a>
+                Terms Of Service
+              </Link>
             </div>
           </div>
         </div>
@@ -84,8 +84,8 @@ const Footer = () => {
 
           <div className="flex -mx-2">
             <a
-              href="#"
-              className="mx-2 transition-colors duration-300 text-gray-300 hover:text-slate-200"
+              href="https://github.com/VoldemLive/pet-CTD"
+              className="mx-2 transition-colors duration-300 text-gray-300 hover:text-gray-200"
               aria-label="Reddit"
             >
               <svg
@@ -99,8 +99,8 @@ const Footer = () => {
             </a>
 
             <a
-              href="#"
-              className="mx-2 transition-colors duration-300 text-gray-300 hover:text-slate-200"
+              href="https://github.com/VoldemLive/pet-CTD"
+              className="mx-2 transition-colors duration-300 text-gray-300 hover:text-gray-200"
               aria-label="Facebook"
             >
               <svg
@@ -114,8 +114,8 @@ const Footer = () => {
             </a>
 
             <a
-              href="#"
-              className="mx-2 transition-colors duration-300 text-slate-300 hover:text-slate-200"
+              href="https://github.com/VoldemLive/pet-CTD"
+              className="mx-2 transition-colors duration-300 text-gray-300 hover:text-gray-200"
               aria-label="Github"
             >
               <svg

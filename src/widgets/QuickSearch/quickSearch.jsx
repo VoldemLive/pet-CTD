@@ -38,7 +38,7 @@ const QuickSearch = ({ toggleShowSearch }) => {
   }
 
   return (
-    <div className="absolute flex z-[1000] bg-slate-700 max-h-screen text-slate-300 content-center justify-center w-full min-h-[95px] min-w-[280px] overflow-y-scroll overflow-x-clip">
+    <div className="absolute flex z-[1000] bg-gray-700 max-h-screen text-gray-300 content-center justify-center w-full min-h-[95px] min-w-[280px] overflow-y-scroll overflow-x-clip">
       <div className="max-w-[1640px] w-full">
         <div className="flex w-full items-center content-center mt-2 p-2 justify-between flex-row">
           <div className="relative  flex w-full">
@@ -87,10 +87,10 @@ const QuickSearch = ({ toggleShowSearch }) => {
           )}
         </div>
         {artistsData?.data?.length > 0 || artworksData?.data?.length > 0 ? (
-          <div className="sticky bottom-0 justify-end p-3 flex w-full bg-slate-700 shadow-lg border-t border-slate-500">
+          <div className="sticky bottom-0 justify-end p-3 flex w-full bg-gray-700 shadow-lg border-t border-gray-500">
             <Link to={`/search?q=${value}`}>
               <div className="flex flex-row gap-2 content-center items-center">
-                <div className=" text-xl  hover:text-slate-100 transition-all duration-300">
+                <div className=" text-xl  hover:text-gray-100 transition-all duration-300">
                   Search
                 </div>
                 <LuMoveRight size={35} />
