@@ -6,6 +6,7 @@ Arthive is a pre-work project for Code The Dream, aimed at creating a user-frien
 
 Arthive brings several interesting features to the table:
 
+- **Responsive design:** Ensuring accessibility and a seamless user experience across all devices, Arthive features a responsive design that adapts to various screen sizes. Whether browsing on a desktop, tablet, or smartphone, users can enjoy the full functionality of the site without compromise.
 - **Animated Hero Banner:** A captivating entrance to the art world right from the start.
 - **Milestone Artworks Block:** Features artworks celebrating 100/200/300 years anniversaries, automatically selected from the API.
 - **Random Artworks Block:** A collection of random artworks presented in a convenient horizontal scrolling interface.
